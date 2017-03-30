@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @custome_booking.name %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @custome_booking.customer.name %>
+</p>
+
+<%= link_to 'Edit', edit_custome_booking_path(@custome_booking) %> |
+<%= link_to 'Back', custome_bookings_path %>

@@ -1,0 +1,27 @@
+<%= form_for(booking) do |f| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Customer Name<br/>
+    <%= f.select :customer_id, @customers, prompt: "select a cusomer" %>
+  </div>
+
+  <div class="field">
+    Cleaner Name<br/>
+    <%= f.select :cleaner_id, @cleaners, prompt: "select a cleaner" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

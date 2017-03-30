@@ -1,0 +1,2 @@
+module CustomeBookingsHelper
+end
