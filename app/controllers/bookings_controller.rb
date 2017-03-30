@@ -15,32 +15,22 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
-    @customers = Customer.all.
-       collect do |c|
-        [c.name, c.id]
-       end
-    @cleaners = Cleaner.all.
-      collect do |c|
-        [c.name, c.id]
-      end
+    set_customers
+    set_cleaners
   end
 
   # GET /bookings/1/edit
   def edit
-    @customers = Customer.order(:last_name, :first_name).
-       collect do |c|
-        [c.name, c.id]
-       end
-    @cleaners = Cleaner.order(:last_name, :first_name).
-      collect do |c|
-        [c.name, c.id]
-      end
+    set_customers
+    set_cleaners
   end
 
   # POST /bookings
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
+    set_customers
+    set_cleaners
 
     respond_to do |format|
       if @booking.save
@@ -86,5 +76,20 @@ class BookingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(:customer_email, :cleaner_email, :customer_id, :cleaner_id)
+    end
+
+    # Use callback to share common setup or constraints betwwen actions.
+    def set_customers
+      @customers = Customer.order(:last_name, :first_name).
+         collect do |c|
+          [c.name, c.id]
+         end
+    end
+
+    def set_cleaners
+      @cleaners = Cleaner.order(:last_name, :first_name).
+        collect do |c|
+          [c.name, c.id]
+        end
     end
 end

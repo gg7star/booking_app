@@ -15,24 +15,19 @@ class CustomeBookingsController < ApplicationController
   # GET /custome_bookings/new
   def new
     @custome_booking = CustomeBooking.new
-    @customers = Customer.all.
-       collect do |c|
-          [c.name, c.id]
-       end
+    set_customers
   end
 
   # GET /custome_bookings/1/edit
   def edit
-    @customers = Customer.order(:last_name, :first_name).
-       collect do |c|
-          [c.name, c.id]
-       end
+    set_customers
   end
 
   # POST /custome_bookings
   # POST /custome_bookings.json
   def create
     @custome_booking = CustomeBooking.new(custome_booking_params)
+    set_customers
 
     respond_to do |format|
       if @custome_booking.save
@@ -78,5 +73,13 @@ class CustomeBookingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def custome_booking_params
       params.require(:custome_booking).permit(:name, :customer_id)
+    end
+
+    # Use callback to share common setup or constraints betwwen actions.
+    def set_customers
+      @customers = Customer.all.
+         collect do |c|
+            [c.name, c.id]
+         end
     end
 end
