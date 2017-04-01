@@ -1,4 +1,4 @@
-<%= form_for(booking) do |f| %>
+<%= bootstrap_form_for(booking, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    Customer Name<br/>
-    <%= f.select :customer_id, @customers, prompt: "select a cusomer" %>
-  </div>
 
   <div class="field">
-    Cleaner Name<br/>
-    <%= f.select :cleaner_id, @cleaners, prompt: "select a cleaner" %>
+    <%= f.select :customer_id, @customers, prompt: "select a cusomer", label: "Customer Name:", class: "selectpicker"  %>
+  </div>
+  <div class="field">
+    <%= f.select :cleaner_id, @cleaners, prompt: "select a cleaner", label: "Cleaner Name:"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align="center">
+    <%= f.primary %>
   </div>
+
 <% end %>

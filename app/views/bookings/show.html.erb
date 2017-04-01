@@ -10,5 +10,9 @@
   <%= @booking.cleaner.name %>
 </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><%= link_to 'Back', bookings_path %></li>
+    <li class="previous"><%= link_to 'Edit', edit_booking_path(@booking) %></li>
+  </ul>
+</nav>

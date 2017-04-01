@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = Booking.order(created_at: :desc ).preload(:customer, :cleaner)
   end
 
   # GET /bookings/1

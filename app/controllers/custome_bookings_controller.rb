@@ -4,7 +4,7 @@ class CustomeBookingsController < ApplicationController
   # GET /custome_bookings
   # GET /custome_bookings.json
   def index
-    @custome_bookings = CustomeBooking.all
+    @custome_bookings = CustomeBooking.order(created_at: :desc).includes(:customer)
   end
 
   # GET /custome_bookings/1
@@ -43,6 +43,7 @@ class CustomeBookingsController < ApplicationController
   # PATCH/PUT /custome_bookings/1
   # PATCH/PUT /custome_bookings/1.json
   def update
+    set_customers
     respond_to do |format|
       if @custome_booking.update(custome_booking_params)
         format.html { redirect_to @custome_booking, notice: 'Custome booking was successfully updated.' }

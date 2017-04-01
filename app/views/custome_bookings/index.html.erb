@@ -2,7 +2,7 @@
 
 <h1>Custome Bookings</h1>
 
-<table>
+<table class="table table-classes table-condensed table-responsive">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,18 +12,26 @@
   </thead>
 
   <tbody>
-    <% @custome_bookings.each do |custome_booking| %>
-      <tr>
-        <td><%= custome_booking.name %></td>
-        <td><%= custome_booking.customer.name %></td>
-        <td><%= link_to 'Show', custome_booking %></td>
-        <td><%= link_to 'Edit', edit_custome_booking_path(custome_booking) %></td>
-        <td><%= link_to 'Destroy', custome_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% unless @custome_bookings.empty? %>
+      <% @custome_bookings.each do |custome_booking| %>
+        <tr>
+          <td><%= custome_booking.name %></td>
+          <td><%= custome_booking.customer.name %></td>
+          <td>
+            <%= link_to 'Show', custome_booking, class: 'btn btn-default btn-xs' %>
+            <%= link_to 'Edit', edit_custome_booking_path(custome_booking), class: "btn btn-info btn-xs" %>
+            <%= link_to 'Destroy', custome_booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
+        </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Custome Booking', new_custome_booking_path %>
+<div class="contextual">
+  <%= link_to(new_custome_booking_path, class: "btn btn-success") do %>
+    New Custome Booking <i class="icon-plus icon-white"></i>
+  <% end %>
+</div>

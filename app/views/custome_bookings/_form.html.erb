@@ -1,27 +1,35 @@
-<%= form_for(custome_booking) do |f| %>
-  <% if custome_booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(custome_booking.errors.count, "error") %> prohibited this custome_booking from being saved:</h2>
+<%= form_for(custome_booking, html: {:class => "form-horizontal"}) do |f| %>
 
-      <ul>
-      <% custome_booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if custome_booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(custome_booking.errors.count, "error") %> prohibited this custome_booking from being saved:</h2>
+
+        <ul>
+        <% custome_booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "Name:", class: "col-md-2 control-label" %>
+      <div class="col-md-8">
+        <%= f.text_field :name , class: "form-control" %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">
+        Customer Name:
+      </label>
+      <div class="col-md-8">
+        <%= f.select :customer_id, @customers, {:include_blank => "select a customer"}, {:class => "form-control btn-danger"} %>
+      </div>
+    </div>
 
-  <div class="field">
-    Customer Name<br/>
-    <%= f.select :customer_id, @customers, prompt: "select a field" %>
-  </div>
+    <div class="actions" align="center">
+      <%= f.submit class: "btn btn-primary btn-sm" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

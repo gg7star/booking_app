@@ -2,5 +2,9 @@
 
 <%= render 'form', booking: @booking %>
 
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><%= link_to 'Back', bookings_path %></li>
+    <li class="previous"><%= link_to 'Show', @booking %></li>
+  </ul>
+</nav>
