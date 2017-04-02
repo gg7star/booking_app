@@ -1,24 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @cleaner.first_name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          First name:
+        </label>
+        <%= @cleaner.first_name %>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @cleaner.last_name %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Last name:
+        </label>
+        <%= @cleaner.last_name %>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @cleaner.email %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Email:
+        </label>
+        <%= @cleaner.email %>
+      </div>
 
-<p>
-  <strong>Quality score:</strong>
-  <%= @cleaner.quality_score %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Quality score:
+        </label>
+        <%= @cleaner.quality_score %>
+      </div>
+    </p>
+  </div>
 
-<%= link_to 'Edit', edit_cleaner_path(@cleaner) %> |
-<%= link_to 'Back', cleaners_path %>
+  <div class="panel-footer">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li class="previous"><%= link_to 'Back', cleaners_path %></li>
+        <li class="previous"><%= link_to 'Edit', edit_cleaner_path(@cleaner) %></li>
+      </ul>
+    </nav>
+  </div>
+</div>

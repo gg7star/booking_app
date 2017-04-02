@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-
   <div class="field">
     <%= f.select :customer_id, @customers, prompt: "select a cusomer", label: "Customer Name:", class: "selectpicker"  %>
   </div>
   <div class="field">
-    <%= f.select :cleaner_id, @cleaners, prompt: "select a cleaner", label: "Cleaner Name:"%>
+    <%= f.collection_select :cleaner_id, Cleaner.all, :id, :name, prompt: "select a cleaner", label: "Cleaner Name:"%>
   </div>
 
   <div class="actions" align="center">

@@ -2,5 +2,9 @@
 
 <%= render 'form', cleaner: @cleaner %>
 
-<%= link_to 'Show', @cleaner %> |
-<%= link_to 'Back', cleaners_path %>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><%= link_to 'Back', cleaners_path %></li>
+    <li class="previous"><%= link_to 'Show', @cleaner %></li>
+  </ul>
+</nav>

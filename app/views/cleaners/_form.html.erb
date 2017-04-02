@@ -1,4 +1,4 @@
-<%= form_for(cleaner) do |f| %>
+<%= form_for(cleaner, html: {:class => "form-horizontal"}) do |f| %>
   <% if cleaner.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cleaner.errors.count, "error") %> prohibited this cleaner from being saved:</h2>
@@ -11,27 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+  <div class="form-group">
+    <%= f.label :first_name, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :quality_score %>
-    <%= f.text_field :quality_score %>
+  <div class="form-group">
+    <%= f.label :quality_score, class: "col-md-2 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_field :quality_score, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align="center">
+    <%= f.submit class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

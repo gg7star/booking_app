@@ -15,20 +15,21 @@
   </thead>
 
   <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.first_name %></td>
-        <td><%= customer.last_name %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.phon_number %></td>
-        <td><%= customer.custome_bookings.count %></td>
-        <td>
-          <%= link_to 'Show', customer, class: 'btn btn-sm' %>
-          <%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-info btn-sm' %>
-          <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-        </td>
-
-      </tr>
+    <% unless @customers.empty? %>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.first_name %></td>
+          <td><%= customer.last_name %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.phon_number %></td>
+          <td><%= customer.custome_bookings.count %></td>
+          <td>
+            <%= link_to 'Show', customer, class: 'btn btn-sm' %>
+            <%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-info btn-sm' %>
+            <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

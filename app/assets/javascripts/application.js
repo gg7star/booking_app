@@ -14,6 +14,7 @@
 //= require bootstrap-table
 //= require bootstrap-table-locale-all
 //= require bootstrap-select
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

@@ -2,4 +2,10 @@
 
 <%= render 'form', customer: @customer %>
 
-<%= link_to 'Back', customers_path %>
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous">
+      <%= link_to 'Back', customers_path %>
+    </li>
+  </ul>
+</nav>

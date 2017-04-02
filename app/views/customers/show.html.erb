@@ -1,24 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @customer.first_name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          First name:
+        </label>
+        <%= @customer.first_name %>
+      </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @customer.last_name %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Last name:
+        </label>
+        <%= @customer.last_name %>
+      </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Email:
+        </label>
+        <%= @customer.email %>
+      </div>
 
-<p>
-  <strong>Phon number:</strong>
-  <%= @customer.phon_number %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Phon number:
+        </label>
+        <%= @customer.phon_number %>
+      </div>
+    </p>
+  </div>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+  <div class="panel-footer">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li class="previous"><%= link_to 'Back', customers_path %></li>
+        <li class="previous"><%= link_to 'Edit', edit_customer_path(@customer) %></li>
+      </ul>
+    </nav>
+  </div>
+</div>
