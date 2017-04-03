@@ -24,7 +24,8 @@ default: &default
 development:
   <<: *default
   database: booking_app_development
-
+  username: rene
+  password:
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -81,5 +82,5 @@ test:
 production:
   <<: *default
   database: booking_app_production
-  username: booking_app
+  username: rene
   password: <%= ENV['BOOKING_APP_DATABASE_PASSWORD'] %>

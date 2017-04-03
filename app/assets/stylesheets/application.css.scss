@@ -19,3 +19,9 @@
   *= require rails_bootstrap_forms
   *= require bootstrap-select
   */
+  
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "extensions/bootstrap-table-reorder-rows";
+@import "rails_bootstrap_forms";
+@import 'bootstrap-select';

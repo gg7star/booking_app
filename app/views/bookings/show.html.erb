@@ -1,18 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @booking.customer.name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Customer:
+        </label>
+        <%= @booking.customer.name %>
+      </div>
 
-<p>
-  <strong>Cleaner:</strong>
-  <%= @booking.cleaner.name %>
-</p>
+      <div class="form-group">
+        <label class="col-md-2 control-label">
+          Cleaner:
+        </label>
+        <%= @booking.cleaner.name %>
+      </div>
+    </p>
+  </div>
 
-<nav aria-label="...">
-  <ul class="pager">
-    <li class="previous"><%= link_to 'Back', bookings_path %></li>
-    <li class="previous"><%= link_to 'Edit', edit_booking_path(@booking) %></li>
-  </ul>
-</nav>
+  <div class="panel-footer">
+    <nav aria-label="...">
+      <ul class="pager">
+        <li class="previous"><%= link_to 'Back', bookings_path %></li>
+        <li class="previous"><%= link_to 'Edit', edit_booking_path(@booking) %></li>
+      </ul>
+    </nav>
+  </div>
+</div>
