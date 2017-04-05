@@ -41,6 +41,14 @@ gem 'autoprefixer-rails', '~>6.7.7.1'
 # gem 'bootstrap-select-rails', '~>1.6.3'
 gem 'bootstrap-select-wrapper-rails'
 
+
+gem 'therubyracer'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "bootstrap-sass-rails"
+gem 'omniauth-gplus'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
