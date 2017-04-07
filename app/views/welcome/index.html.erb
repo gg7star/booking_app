@@ -1,0 +1,4 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+<%= link_to "Signout", destroy_user_session_path, method: :delete %>
+<%= link_to "Upgrade Access", user_omniauth_upgrade_path( :google_oauth2 ) %>

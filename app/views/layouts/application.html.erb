@@ -57,7 +57,13 @@
               Logged in as <strong><%= current_user.email %></strong>. -->
               <ul class="nav navbar-nav navbar-right">
                 <li class="active">
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                  <%= link_to "Signout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                </li>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                  <%= link_to "Upgrade Access", user_omniauth_upgrade_path( :google_oauth2 ) %>
                 </li>
               </ul>
 
