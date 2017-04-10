@@ -12,12 +12,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
+    puts "#{__FUNCTION__}(#{__LINE__}):#{__FILE__}"
     generic_callback( 'google_oauth2' )
   end
 
   def generic_callback( provider )
     @identity = Identity.find_for_oauth env["omniauth.auth"]
-
+    puts "#{__FUNCTION__}(#{__LINE__}):#{__FILE__}"
     @user = @identity.user || current_user
     if @user.nil?
       @user = User.create( email: @identity.email || "" )
@@ -37,6 +38,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
       session["devise.#{provider}_data"] = env["omniauth.auth"]
+      puts "env[omniauth.auth] = #{env["omniauth.auth"]}"
       redirect_to new_user_registration_url
     end
   end
@@ -54,5 +56,5 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     request.env['omniauth.strategy'].options['scope'] = flash[:scope] || request.env['omniauth.strategy'].options['scope']
     render :text => "Setup complete.", :status => 404
   end
-  
+
 end
